@@ -26,7 +26,7 @@ jobs:
     if: startsWith(github.ref, 'refs/tags/')
     steps:
       - name: Create artifact
-        run: tar cvf build/ios/ios.tgz -C build/ios/ my-file.txt
+        run: cd build/ios/ && tar -cvf ios.tgz my-file.txt
       - name: Create release
         uses: actions/create-release@v1
         env:
