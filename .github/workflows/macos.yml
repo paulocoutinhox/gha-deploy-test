@@ -25,7 +25,7 @@ jobs:
         uses: actions/upload-artifact@v2
         if: startsWith(github.ref, 'refs/tags/')
         with:
-          name: artifact-${{ matrix.config.target }}
+          name: artifact-macos
           path: ${{ matrix.config.target }}.tgz
 
   deploy:
@@ -37,7 +37,7 @@ jobs:
       - name: Load
         uses: actions/download-artifact@v2
         with:
-          name: artifact-${{ matrix.config.target }}
+          name: artifact-macos
       - name: Get release
         id: get_release
         uses: bruceadams/get-release@v1.2.2
